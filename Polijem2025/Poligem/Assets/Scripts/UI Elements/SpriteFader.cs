@@ -35,7 +35,11 @@ public class SpriteFader : MonoBehaviour
         {
             StopCoroutine (fadeCoroutine);
         }
-        fadeCoroutine = StartCoroutine (FadeToAlpha (minAlpha));
+
+        if (this.gameObject.activeSelf)
+        {
+            fadeCoroutine = StartCoroutine (FadeToAlpha (minAlpha));
+        }
     }
 
     private IEnumerator FadeToAlpha (float targetAlpha)
