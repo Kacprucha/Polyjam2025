@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,6 +25,9 @@ public class DialogView : MonoBehaviour
         if (Input.GetKeyDown (KeyCode.Escape) && this.gameObject.activeSelf)
         {
             this.gameObject.SetActive (false);
+            dialogOption.gameObject.SetActive(false);
+            buttonOption.SetActive(false);
+            inputOption.SetActive(false);
         }
     }
 
@@ -56,6 +60,7 @@ public class DialogView : MonoBehaviour
         {
             case DialogType.Normal:
                 dialogOption.text = LocalizationManager.Instance.GetLocalizedValue(dialog.message);
+
                 break;
 
             case DialogType.Input:
