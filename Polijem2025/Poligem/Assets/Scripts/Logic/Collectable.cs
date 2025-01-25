@@ -2,28 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TypeOfCollectable
-{
-    Invalid,
-    PartOfRaport,
-    PartOfTueFiles,
-
-}
-
-public class Collectable : MonoBehaviour
+public class Collectable : InteractableElement
 {
     [SerializeField] TypeOfCollectable type;
     
     [SerializeField] Sprite icon;
     [SerializeField] SpriteFader interactionKeyFader;
 
-    protected bool isIteamInRange;
-    protected bool isCollected = false;
-
-    public TypeOfCollectable Type 
-    {
-        get { return type; }
-    }
+    protected bool isIteamInRange = false;
 
 
     // Start is called before the first frame update
@@ -35,16 +21,20 @@ public class Collectable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isIteamInRange && !DialogView.gameObject.activeSelf && Input.GetKeyDown (KeyCode.Q))
+        {
+            PlayerInfo.Instance.AddCollectable (new CollectableInfo (type, icon));
+            Destroy (this.gameObject);
+        }
     }
 
-    public void ShowInteractionKey ()
+    public override void ShowInteractionKey ()
     {
         interactionKeyFader.FadeIn ();
         isIteamInRange = true;
     }
 
-    public void HideInteractionKey ()
+    public override void HideInteractionKey ()
     {
         interactionKeyFader.FadeOut ();
         isIteamInRange = false;

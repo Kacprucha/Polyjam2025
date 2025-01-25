@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NpcBehaviour : MonoBehaviour
+public class NpcBehaviour : InteractableElement
 {
     [SerializeField] string npcName;
 
     [SerializeField] SpriteFader interactionKeyFader;
-    [SerializeField] DialogView dialogView;
 
     [SerializeField] string corelatedDialog;
     [SerializeField] Sprite corelatedBackGround;
@@ -17,19 +16,19 @@ public class NpcBehaviour : MonoBehaviour
 
     private void Update ()
     {
-        if (isPlayerInRange && Input.GetKeyDown (KeyCode.E))
+        if (isPlayerInRange && !DialogView.gameObject.activeSelf && Input.GetKeyDown (KeyCode.E))
         {
-            dialogView.Show (corelatedDialog, npcName, corelatedBackGround, corelatedPortret);
+            DialogView.Show (corelatedDialog, npcName, corelatedBackGround, corelatedPortret);
         }
     }
 
-    public void ShowInteractionKey ()
+    public override void ShowInteractionKey ()
     {
         interactionKeyFader.FadeIn ();
         isPlayerInRange = true;
     }
 
-    public void HideInteractionKey ()
+    public override void HideInteractionKey ()
     {
         interactionKeyFader.FadeOut ();
         isPlayerInRange = false;

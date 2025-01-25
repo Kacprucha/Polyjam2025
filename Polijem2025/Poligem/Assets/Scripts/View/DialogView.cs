@@ -50,6 +50,6 @@ public class DialogView : MonoBehaviour
         }
 
         dialogLabel.text = dialog;
-        this.npcName.text = name;
+        npcName.text = name;
     }
 }

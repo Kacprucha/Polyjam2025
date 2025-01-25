@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Rendering.FilterWindow;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -9,51 +10,62 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] float sarchingRange = 0.5f;
     [SerializeField] LayerMask npcLayer;
 
-    protected Collider2D[] previosuNpcInRange;
+    protected Collider2D[] previousElementsInRange;
 
     private void Start ()
     {
-        previosuNpcInRange = new Collider2D[0];
+        previousElementsInRange = new Collider2D[0];
     }
 
     private void Update ()
     {
-        Collider2D[] npcInRange = Physics2D.OverlapCircleAll (transform.position, sarchingRange, npcLayer);
-        List<Collider2D> npcInRangeList = new List<Collider2D> (npcInRange);
+        Collider2D[] elementsInRange = Physics2D.OverlapCircleAll (transform.position, sarchingRange, npcLayer);
+        List<Collider2D> elementsInRangeList = new List<Collider2D> (elementsInRange);
 
-        if (npcInRangeList != null && npcInRangeList.Count > 0) 
+        if (elementsInRangeList != null && elementsInRangeList.Count > 0) 
         {
-            foreach (Collider2D npc in previosuNpcInRange)
+            foreach (Collider2D element in previousElementsInRange)
             {
-                bool npcToHide = true;
-                foreach (Collider2D npc2 in npcInRangeList)
+                bool elementToHide = true;
+                foreach (Collider2D element2 in elementsInRangeList)
                 {
-                    if (npc == npc2)
+                    if (element == element2)
                     {
-                        npcToHide = false;
+                        elementToHide = false;
                         break;
                     }
                 }
 
-                if (npcToHide)
+                if (elementToHide)
                 {
-                    npc.GetComponent<NpcBehaviour> ().HideInteractionKey ();
+                    element.GetComponent<InteractableElement> ().HideInteractionKey ();
                 }
             }
         }
         else
         {
-            foreach (Collider2D npc in previosuNpcInRange)
+            foreach (Collider2D element in previousElementsInRange)
             {
-                npc.GetComponent<NpcBehaviour> ().HideInteractionKey ();
+                element.GetComponent<InteractableElement> ().HideInteractionKey ();
             }
         }
 
-        previosuNpcInRange = npcInRange != null && npcInRange.Length > 0 ? npcInRange : new Collider2D[0];
+        previousElementsInRange = elementsInRange != null && elementsInRange.Length > 0 ? elementsInRange : new Collider2D[0];
 
-        foreach (Collider2D npc in npcInRange)
+        foreach (Collider2D element in elementsInRange)
         {
-            npc.GetComponent<NpcBehaviour> ().ShowInteractionKey ();
+            if (element.GetComponent<NpcBehaviour> () != null)
+            {
+                element.GetComponent<NpcBehaviour> ().ShowInteractionKey ();
+            }
+            else if (element.GetComponent<Collectable> () != null)
+            {
+                element.GetComponent<Collectable> ().ShowInteractionKey ();
+            }
+            else if (element.GetComponent<InteractableBehaviour> () != null)
+            {
+                element.GetComponent<InteractableBehaviour> ().ShowInteractionKey ();
+            }
         }
     }
 
