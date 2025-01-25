@@ -213,7 +213,7 @@ SpriteRenderer:
   m_SortingLayerID: 749523761
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: -964514526, guid: 921ab42d6920158458cdf2281746cb8a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5351aaa43fe33314aba5d3903e266d61, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
@@ -277,6 +277,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   counter: {fileID: 862109205}
   buttonIcon: {fileID: 2010208449}
+  keyCode: 258
+  raprotToPresent: {fileID: 0}
 --- !u!1 &36879730
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,7 +737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3934783911153155520, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3934783911153155520, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
@@ -744,7 +746,7 @@ PrefabInstance:
     - target: {fileID: 6015471209075763002, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ff1a41c5befa650489501407a79dd7bf, type: 3}
+      objectReference: {fileID: 21300000, guid: 2f6d907b1deb7ad46afb2913adffff94, type: 3}
     - target: {fileID: 6015471209075763002, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -1487,7 +1489,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 63012b3b7a1ef71419e5c71db602fee1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2501,7 +2503,7 @@ PrefabInstance:
     - target: {fileID: 1423276677879459341, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
       propertyPath: corelatedPortret
       value: 
-      objectReference: {fileID: 21300000, guid: ff1a41c5befa650489501407a79dd7bf, type: 3}
+      objectReference: {fileID: 21300000, guid: a35e73db265fe7645a3d9a46a1e57793, type: 3}
     - target: {fileID: 1423276677879459341, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
       propertyPath: corelatedBackGround
       value: 
@@ -3538,7 +3540,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 63012b3b7a1ef71419e5c71db602fee1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4318,7 +4320,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 63012b3b7a1ef71419e5c71db602fee1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6999,6 +7001,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   counter: {fileID: 0}
   buttonIcon: {fileID: 0}
+  keyCode: 0
+  raprotToPresent: {fileID: 0}
 --- !u!1 &1031198536
 GameObject:
   m_ObjectHideFlags: 0
@@ -8354,9 +8358,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1465731449, guid: 921ab42d6920158458cdf2281746cb8a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: db901de333ae2ca499ff28d2c866053a, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -9787,7 +9791,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 63012b3b7a1ef71419e5c71db602fee1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10772,7 +10776,7 @@ PrefabInstance:
     - target: {fileID: 1423276677879459341, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
       propertyPath: corelatedPortret
       value: 
-      objectReference: {fileID: 21300000, guid: 6e70027ccef90a448ba0c92e4cc589f7, type: 3}
+      objectReference: {fileID: 21300000, guid: e7a5abecee1bdde4ab5b7c0ac532d607, type: 3}
     - target: {fileID: 3547729979402249215, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.64
@@ -11123,6 +11127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   counter: {fileID: 1053594167}
   buttonIcon: {fileID: 1276811563}
+  keyCode: 257
+  raprotToPresent: {fileID: 0}
 --- !u!1 &1571492967
 GameObject:
   m_ObjectHideFlags: 0
@@ -22636,9 +22642,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1465731449, guid: 921ab42d6920158458cdf2281746cb8a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 23aab4af25846874e8eba331c7387727, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -22866,7 +22872,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 63012b3b7a1ef71419e5c71db602fee1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

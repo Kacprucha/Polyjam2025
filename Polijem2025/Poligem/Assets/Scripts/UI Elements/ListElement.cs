@@ -7,6 +7,8 @@ public class ListElement : MonoBehaviour
 {
     [SerializeField] Text counter;
     [SerializeField] Image buttonIcon;
+    [SerializeField] KeyCode keyCode;
+    [SerializeField] GameObject raprotToPresent;
 
     protected float fadeDuration = 0.5f;
     protected float minAlpha = 0f;
@@ -28,7 +30,15 @@ public class ListElement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (keyCode != KeyCode.None && Input.GetKeyDown (keyCode) && collected >= 5)
+        {
+            raprotToPresent.SetActive (true);
+        }
+
+        if (raprotToPresent != null && raprotToPresent.activeSelf && Input.GetKeyDown (KeyCode.Escape))
+        {
+            raprotToPresent.SetActive (false);
+        }
     }
 
     public void UpdateCounter ()
