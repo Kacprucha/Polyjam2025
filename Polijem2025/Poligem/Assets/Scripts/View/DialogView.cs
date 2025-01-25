@@ -25,7 +25,7 @@ public class DialogView : MonoBehaviour
         }
     }
 
-    public void Show (string dialog, string name, Sprite background = null, Sprite portret = null)
+    public void Show (DialogInfo dialog, string name, Sprite background = null, Sprite portret = null)
     {
         this.gameObject.SetActive (true);
 
@@ -50,7 +50,7 @@ public class DialogView : MonoBehaviour
             this.portret.gameObject.SetActive (false);
         }
 
-        dialogLabel.text = dialog;
+        dialogLabel.text = dialog.initialMessage;
         npcName.text = name;
     }
 }
