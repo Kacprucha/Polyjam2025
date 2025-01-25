@@ -593,6 +593,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3934783911153155520, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934783911153155520, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.625
+      objectReference: {fileID: 0}
     - target: {fileID: 6015471209075763002, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1977,7 +1985,7 @@ GameObject:
   - component: {fileID: 363475140}
   - component: {fileID: 363475141}
   m_Layer: 5
-  m_Name: buton 1 (2)
+  m_Name: button 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2062,7 +2070,7 @@ GameObject:
   - component: {fileID: 378306325}
   - component: {fileID: 378306326}
   m_Layer: 5
-  m_Name: buton 1 (1)
+  m_Name: button 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2540,7 +2548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3934783911153155520, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3934783911153155520, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
@@ -3451,6 +3459,14 @@ PrefabInstance:
     - target: {fileID: 3547729979402249215, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934783911153155520, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.8125
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934783911153155520, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.6875
       objectReference: {fileID: 0}
     - target: {fileID: 6015471209075763002, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
       propertyPath: m_Sprite
@@ -8874,9 +8890,9 @@ MonoBehaviour:
   DialogView: {fileID: 1505380064}
   npcName: Computer
   interactionKeyFader: {fileID: 26166127}
-  corelatedDialog: "Podaj has\u0142o"
   corelatedBackGround: {fileID: 0}
   corelatedPortret: {fileID: 21300000, guid: 1cbd75fbc35ccbc4d99b5f3c60145ead, type: 3}
+  dialogs: []
 --- !u!1 &1309454335
 GameObject:
   m_ObjectHideFlags: 0
@@ -9800,7 +9816,7 @@ GameObject:
   - component: {fileID: 1381338588}
   - component: {fileID: 1381338589}
   m_Layer: 5
-  m_Name: buton 1
+  m_Name: button 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10383,11 +10399,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3934783911153155520, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.8125
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3934783911153155520, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.6875
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6015471209075763002, guid: e01350dc5baa92543b22ee03a2bd1933, type: 3}
       propertyPath: m_Sprite
@@ -10508,7 +10524,9 @@ MonoBehaviour:
   background: {fileID: 1025055224}
   portret: {fileID: 2119493898}
   npcName: {fileID: 627293037}
-  dialogLabel: {fileID: 908699962}
+  dialogOption: {fileID: 0}
+  buttonOption: {fileID: 0}
+  inputOption: {fileID: 0}
 --- !u!1 &1505484180
 GameObject:
   m_ObjectHideFlags: 0
@@ -17369,7 +17387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1597182032}
   m_Layer: 5
-  m_Name: buton option
+  m_Name: Button option
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22442,9 +22460,9 @@ MonoBehaviour:
   DialogView: {fileID: 1505380064}
   npcName: Toilet Guy
   interactionKeyFader: {fileID: 766018294}
-  corelatedDialog: Pls toilet paper
   corelatedBackGround: {fileID: 0}
   corelatedPortret: {fileID: 21300000, guid: 5f19b97ffbaface44922ed9551e83ddc, type: 3}
+  dialogs: []
 --- !u!1 &1991617745
 GameObject:
   m_ObjectHideFlags: 0
@@ -22534,7 +22552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2006285154}
   m_Layer: 5
-  m_Name: input option
+  m_Name: Input option
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

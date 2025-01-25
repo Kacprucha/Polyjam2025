@@ -8,7 +8,9 @@ public class DialogView : MonoBehaviour
     [SerializeField] Image background;
     [SerializeField] Image portret;
     [SerializeField] Text npcName;
-    [SerializeField] Text dialogLabel;
+    [SerializeField] Text dialogOption;
+    [SerializeField] GameObject buttonOption;
+    [SerializeField] GameObject inputOption;
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +52,27 @@ public class DialogView : MonoBehaviour
             this.portret.gameObject.SetActive (false);
         }
 
-        dialogLabel.text = dialog.initialMessage;
+        switch(dialog.type)
+        {
+            case DialogType.Normal:
+                dialogOption.text = LocalizationManager.Instance.GetLocalizedValue(dialog.message);
+                break;
+
+            case DialogType.Input:
+                break;
+
+            case DialogType.Item:
+                break;
+
+            case DialogType.Choice:
+                break;
+
+            default:
+                Debug.LogFormat("%s given dialog type not implemented", dialog.type);
+                break;
+        }
+
+        dialogOption.text = LocalizationManager.Instance.GetLocalizedValue(dialog.message);
         npcName.text = name;
     }
 }
