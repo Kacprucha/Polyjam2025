@@ -32,5 +32,6 @@ public class NpcBehaviour : InteractableElement
     {
         interactionKeyFader.FadeOut ();
         isPlayerInRange = false;
+        DialogView.gameObject.SetActive (false);
     }
 }
