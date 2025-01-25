@@ -24,7 +24,7 @@ public class Collectable : InteractableElement
         if (isIteamInRange && !DialogView.gameObject.activeSelf && Input.GetKeyDown (KeyCode.Q))
         {
             PlayerInfo.Instance.AddCollectable (new CollectableInfo (type, icon));
-            Destroy (this.gameObject);
+            StartCoroutine (proceedDestroction ());
         }
     }
 
@@ -38,5 +38,14 @@ public class Collectable : InteractableElement
     {
         interactionKeyFader.FadeOut ();
         isIteamInRange = false;
+    }
+
+    protected IEnumerator proceedDestroction ()
+    {
+        this.gameObject.SetActive (false);
+
+        yield return new WaitForEndOfFrame ();
+
+        Destroy (this.gameObject);
     }
 }

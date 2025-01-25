@@ -46,7 +46,10 @@ public class PlayerBehaviour : MonoBehaviour
         {
             foreach (Collider2D element in previousElementsInRange)
             {
-                element.GetComponent<InteractableElement> ().HideInteractionKey ();
+                if (element.gameObject.activeSelf)
+                {
+                    element.GetComponent<InteractableElement> ().HideInteractionKey ();
+                }
             }
         }
 

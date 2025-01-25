@@ -43,6 +43,7 @@ public class DialogView : MonoBehaviour
         {
             this.portret.gameObject.SetActive (true);
             this.portret.sprite = portret;
+            this.portret.preserveAspect = true;
         }
         else
         {
