@@ -17,7 +17,10 @@ public enum DialogType
 public class DialogInfo
 {
     public DialogType type;
-    public string message;
+    public string initialMessage;
+    public string defaultMessage;
+    public bool isDialogFinished = false;
+    public bool isDiaglogInitialized = false;
 
     // Choice class params
     public List<string> ans;
@@ -33,23 +36,23 @@ public class DialogInfo
     public DialogInfo(string init_msg, string final_msg)
     {
         type = DialogType.Normal;
-        message = init_msg;
-        //finalMessage = final_msg;
+        initialMessage = init_msg;
+        defaultMessage = final_msg;
     }
 
     public DialogInfo(string init_msg, string final_msg, CollectableInfo item_info)
     {
         type = DialogType.Item;
-        message = init_msg;
-        //finalMessage = final_msg;
+        initialMessage = init_msg;
+        defaultMessage = final_msg;
         itemInfo = item_info;
     }
 
     public DialogInfo(string init_msg, string final_msg, List<string> msg, List<string> answers)
     {
         type = DialogType.Choice;
-        message = init_msg;
-        //finalMessage = final_msg;
+        initialMessage = init_msg;
+        defaultMessage = final_msg;
         options = msg;
         ans = answers;
     }
@@ -57,8 +60,8 @@ public class DialogInfo
     public DialogInfo(string init_msg, string final_msg, List<string> msg, string expected_val)
     {
         type = DialogType.Input;
-        message = init_msg;
-        //finalMessage = final_msg;
+        initialMessage = init_msg;
+        defaultMessage = final_msg;
         expectedValue = expected_val;
         options = msg;
     }

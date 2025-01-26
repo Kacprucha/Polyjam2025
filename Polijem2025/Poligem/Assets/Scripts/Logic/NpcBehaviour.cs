@@ -13,8 +13,7 @@ public class NpcBehaviour : InteractableElement
     [SerializeField] List<DialogInfo> dialogs;
 
     protected bool isPlayerInRange = false;
-    protected bool finishedMainDialog = false;
-    protected int dialogIndex = 1;
+    protected int dialogIndex = 0;
 
     private void Update ()
     {
@@ -26,19 +25,10 @@ public class NpcBehaviour : InteractableElement
             if (dialogs.Count < 1)
                 return;
 
-            // If main dialog tree was finished use default option
-            if (finishedMainDialog == true || dialogs.Count == dialogIndex)
-            {
-                finishedMainDialog = true;
-                dialogIndex = 0;
-            }
-            else if (finishedMainDialog == false && dialogs.Count > 1 && dialogIndex == 0)
-                dialogIndex = 1;
-
             DialogView.Show(dialogs[dialogIndex], npcName, corelatedBackGround, corelatedPortret);
-            dialogIndex++; 
-    
         }
+
+
     }
 
     public override void ShowInteractionKey ()

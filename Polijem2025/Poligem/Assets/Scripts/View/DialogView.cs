@@ -25,14 +25,14 @@ public class DialogView : MonoBehaviour
         if (Input.GetKeyDown (KeyCode.Escape) && this.gameObject.activeSelf)
         {
             this.gameObject.SetActive (false);
-            dialogOption.gameObject.SetActive(false);
-            buttonOption.SetActive(false);
-            inputOption.SetActive(false);
         }
     }
 
     public void Show (DialogInfo dialog, string name, Sprite background = null, Sprite portret = null)
     {
+        dialogOption.gameObject.SetActive(false);
+        buttonOption.SetActive(false);
+        inputOption.SetActive(false);
         this.gameObject.SetActive (true);
 
         if (background != null)
@@ -56,28 +56,73 @@ public class DialogView : MonoBehaviour
             this.portret.gameObject.SetActive (false);
         }
 
-        switch(dialog.type)
+        // Show initial message
+        if (dialog.isDiaglogInitialized == false)
         {
-            case DialogType.Normal:
-                dialogOption.text = LocalizationManager.Instance.GetLocalizedValue(dialog.message);
-
-                break;
-
-            case DialogType.Input:
-                break;
-
-            case DialogType.Item:
-                break;
-
-            case DialogType.Choice:
-                break;
-
-            default:
-                Debug.LogFormat("%s given dialog type not implemented", dialog.type);
-                break;
+            dialogOption.gameObject.SetActive(true);
+            if(dialog.type == DialogType.Normal)
+                dialogOption.text = LocalizationManager.Instance.GetLocalizedValue(dialog.defaultMessage);
+            else
+                dialogOption.text = LocalizationManager.Instance.GetLocalizedValue(dialog.initialMessage);
+            dialog.isDiaglogInitialized = true;
+            return;
         }
 
-        dialogOption.text = LocalizationManager.Instance.GetLocalizedValue(dialog.message);
+        // Show default message
+        if (dialog.isDialogFinished == true)
+        {
+            dialogOption.gameObject.SetActive(true);
+            dialogOption.text = LocalizationManager.Instance.GetLocalizedValue(dialog.defaultMessage);
+            return;
+        }
+
+        // Continue main dialouge
+        switch (dialog.type)
+        {
+            case DialogType.Normal:
+                {
+                    dialogOption.text = LocalizationManager.Instance.GetLocalizedValue(dialog.defaultMessage);
+                    dialogOption.gameObject.SetActive(true);
+                        break;
+                }
+
+            case DialogType.Input:
+                {
+                    inputOption.SetActive(true);
+                    Text title = inputOption.transform.Find("title").gameObject.GetComponent<Text>();
+
+                    title.text = LocalizationManager.Instance.GetLocalizedValue(dialog.defaultMessage);
+                        break;
+                }
+
+            case DialogType.Item:
+                {
+                    buttonOption.SetActive(true);
+
+                    Text title = buttonOption.transform.Find("title").gameObject.GetComponent<Text>();
+
+                    GameObject buttonContainer = buttonOption.transform.Find("button container").gameObject;
+                    
+
+                    title.text = LocalizationManager.Instance.GetLocalizedValue(dialog.defaultMessage);
+
+
+                    break;
+                }
+            case DialogType.Choice:
+                {
+                    buttonOption.SetActive(true);
+                    break;
+                }
+
+            default:
+                {
+                    Debug.LogFormat("%s given dialog type not implemented", dialog.type);
+                    break;
+                }
+        }
+
+        //dialogOption.text = LocalizationManager.Instance.GetLocalizedValue(dialog.message);
         npcName.text = name;
     }
 }
