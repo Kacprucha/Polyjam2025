@@ -152,7 +152,7 @@ MonoBehaviour:
   DialogView: {fileID: 0}
   npcName: Test Name
   interactionKeyFader: {fileID: 8467994874298720654}
-  corelatedBackGround: {fileID: 0}
+  corelatedBackGround: {fileID: 21300000, guid: 88e40d4f081d84943bbe46342caa5349, type: 3}
   corelatedPortret: {fileID: 21300000, guid: 7c9a31a47e54ff641bbec6dc34513b47, type: 3}
   dialogs: []
 --- !u!212 &6015471209075763002
