@@ -9,6 +9,8 @@ public class InfoView : MonoBehaviour
     [SerializeField] Text buttonLabel;
     [SerializeField] Button button;
 
+    CollectableInfo iteam;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,14 +33,22 @@ public class InfoView : MonoBehaviour
         
     }
 
-    public void SetInfo (string info)
+    public void SetInfo (string info, CollectableInfo iteamToGet = null)
     {
-        this.info.text = info;
+        this.info.text = LocalizationManager.Instance.GetLocalizedValue(info);
         this.gameObject.SetActive (true);
+
+        iteam = iteamToGet;
     }
 
     protected void onButtonClicked ()
     {
+        if (iteam != null)
+        {
+            PlayerInfo.Instance.AddCollectable (iteam);
+            iteam = null;
+        }
+
         this.gameObject.SetActive (false);
     }
 }

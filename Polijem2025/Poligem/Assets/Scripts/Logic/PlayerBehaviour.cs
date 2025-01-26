@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
-using static UnityEditor.Rendering.FilterWindow;
 
 public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField] Transform centerPoint;
     [SerializeField] float sarchingRange = 0.5f;
     [SerializeField] LayerMask npcLayer;
+
+    [SerializeField] DialogView DialogView;
 
     protected Collider2D[] previousElementsInRange;
 
@@ -18,7 +20,7 @@ public class PlayerBehaviour : MonoBehaviour
     }
 
     private void Update ()
-    {
+    { 
         Collider2D[] elementsInRange = Physics2D.OverlapCircleAll (transform.position, sarchingRange, npcLayer);
         List<Collider2D> elementsInRangeList = new List<Collider2D> (elementsInRange);
 

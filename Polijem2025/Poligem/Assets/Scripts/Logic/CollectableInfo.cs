@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,10 +13,11 @@ public enum TypeOfCollectable
     Indetyficator
 }
 
+[Serializable]
 public class CollectableInfo
 {
-    TypeOfCollectable type;
-    Sprite icon;
+    public TypeOfCollectable type;
+    public Sprite icon;
 
     public TypeOfCollectable Type
     {

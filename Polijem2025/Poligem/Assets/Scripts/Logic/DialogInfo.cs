@@ -2,15 +2,19 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.UI;
 using UnityEngine;
 
 public enum DialogType
 {
+    Normal,
     Input, 
     Choice, 
-    Item, 
-    Normal
+    Item,
+    BossDialog,
+    ArchivistDialog,
+    Dolphin,
+    ToiletGuy,
+    OurCompputer
 }
 
 [Serializable]
@@ -21,6 +25,7 @@ public class DialogInfo
     public string defaultMessage;
     public bool isDialogFinished = false;
     public bool isDiaglogInitialized = false;
+    public bool rnadomDialog = false;
 
     // Choice class params
     public List<string> ans;

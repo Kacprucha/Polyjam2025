@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] DialogView dialogView;
     [SerializeField] ListElement mainRaportTask;
     [SerializeField] ListElement sicretRaportTask;
     [SerializeField] List<InventoryElement> inventorySlots;
+
+    [SerializeField] DialogInfo dialogInfo;
+    [SerializeField] string name;
+    [SerializeField] Sprite boss;
+    [SerializeField] Sprite back;
 
     protected PlayerInfo playerInfo;
 
@@ -16,6 +22,8 @@ public class GameController : MonoBehaviour
         playerInfo = new PlayerInfo ();
         playerInfo.EquipmentChanged += playerEquipmentChanged;
         Debug.Log ("PlayerInfo created");
+
+        dialogView.Show (dialogInfo, name, back, boss);
     }
 
     private void OnEnable ()
@@ -29,37 +37,45 @@ public class GameController : MonoBehaviour
         
     }
 
-    protected void playerEquipmentChanged (CollectableInfo iteam)
+    protected void playerEquipmentChanged (CollectableInfo iteam, bool isAdded)
     {
-        switch (iteam.Type)
+        if (isAdded)
         {
-            case TypeOfCollectable.PartOfRaport:
+            switch (iteam.Type)
+            {
+                case TypeOfCollectable.PartOfRaport:
 
-                mainRaportTask.UpdateCounter ();
+                    mainRaportTask.UpdateCounter ();
 
-                break;
+                    break;
 
-            case TypeOfCollectable.PartOfTueFiles:
+                case TypeOfCollectable.PartOfTueFiles:
 
-                if (!sicretRaportTask.gameObject.activeSelf)
-                {
-                    sicretRaportTask.gameObject.SetActive (true);
-                }
+                    if (!sicretRaportTask.gameObject.activeSelf)
+                    {
+                        sicretRaportTask.gameObject.SetActive (true);
+                    }
 
-                sicretRaportTask.UpdateCounter ();
+                    sicretRaportTask.UpdateCounter ();
 
-                break;
-        }
+                    break;
+            }
 
-        InventoryElement slot = getFirstFreeSlotOrSlotWithIteam (iteam.Type);
+            InventoryElement slot = getFirstFreeSlotOrSlotWithIteam (iteam.Type);
 
-        if (slot.Empty)
-        {
-            slot.NewIteam (iteam.Icon, iteam.Type);
+            if (slot.Empty)
+            {
+                slot.NewIteam (iteam.Icon, iteam.Type);
+            }
+            else
+            {
+                slot.AnotherOne ();
+            }
         }
         else
         {
-            slot.AnotherOne ();
+            InventoryElement slot = getFirstFreeSlotOrSlotWithIteam (iteam.Type);
+            slot.RemoveIteam ();
         }
     }
 

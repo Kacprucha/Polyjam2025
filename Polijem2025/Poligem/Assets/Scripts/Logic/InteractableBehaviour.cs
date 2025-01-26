@@ -7,6 +7,9 @@ public class InteractableBehaviour : InteractableElement
     [SerializeField] InfoView infoView;
     [SerializeField] string info;
     [SerializeField] SpriteFader interactionKeyFader;
+    [SerializeField] CollectableInfo iteam;
+    public bool ExitDoor = false;
+    [SerializeField] GameObject endGameScreen;
 
     bool elementIsInRange = false;
 
@@ -21,7 +24,18 @@ public class InteractableBehaviour : InteractableElement
     {
         if (elementIsInRange && !DialogView.gameObject.activeSelf && Input.GetKeyDown (KeyCode.E))
         {
-            infoView.SetInfo (info);
+            if (ExitDoor && PlayerInfo.Instance.PermitionToLeav)
+            {
+                endGameScreen.SetActive (true);
+            }
+            else if (iteam.type != TypeOfCollectable.Invalid)
+            {
+                infoView.SetInfo (info, iteam);
+            }
+            else
+            {
+                infoView.SetInfo (info);
+            }
         }
     }
 

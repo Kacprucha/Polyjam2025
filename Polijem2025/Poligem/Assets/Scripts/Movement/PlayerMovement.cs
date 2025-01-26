@@ -8,17 +8,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float speed = 5f;
     [SerializeField] Animator animator;
 
+    [SerializeField] DialogView DialogView;
+
     Vector2 movement;
 
     // Update is called once per frame
     void Update()
     {
-        movement.x = Input.GetAxis ("Horizontal");
-        movement.y = Input.GetAxis ("Vertical");
+        if (!DialogView.inputOption.activeSelf)
+        {
+            movement.x = Input.GetAxis ("Horizontal");
+            movement.y = Input.GetAxis ("Vertical");
 
-        animator.SetFloat ("Horizontal", movement.x);
-        animator.SetFloat ("Vertical", movement.y);
-        animator.SetFloat ("Speed", movement.sqrMagnitude);
+            animator.SetFloat ("Horizontal", movement.x);
+            animator.SetFloat ("Vertical", movement.y);
+            animator.SetFloat ("Speed", movement.sqrMagnitude);
+        }
     }
 
     void FixedUpdate ()

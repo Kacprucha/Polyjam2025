@@ -71,9 +71,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 749523761
-  m_SortingLayer: 3
-  m_SortingOrder: 1
+  m_SortingLayerID: 445503367
+  m_SortingLayer: 4
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 5351aaa43fe33314aba5d3903e266d61, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   fadeDuration: 1
   minAlpha: 0
   maxAlpha: 1
+  fadeOnStart: 1
 --- !u!1 &8952670934104437045
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,11 +151,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DialogView: {fileID: 0}
-  npcName: Test Name
+  npcName: Coworker
   interactionKeyFader: {fileID: 8467994874298720654}
   corelatedBackGround: {fileID: 21300000, guid: 88e40d4f081d84943bbe46342caa5349, type: 3}
   corelatedPortret: {fileID: 21300000, guid: 7c9a31a47e54ff641bbec6dc34513b47, type: 3}
-  dialogs: []
+  dialogs:
+  - type: 0
+    initialMessage: 
+    defaultMessage: 
+    isDialogFinished: 0
+    isDiaglogInitialized: 1
+    rnadomDialog: 1
+    ans: []
+    options: []
+    itemInfo:
+      type: 0
+      icon: {fileID: 0}
+    expectedValue: 
 --- !u!212 &6015471209075763002
 SpriteRenderer:
   m_ObjectHideFlags: 0

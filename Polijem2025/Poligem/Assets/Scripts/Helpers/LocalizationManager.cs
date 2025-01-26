@@ -7,11 +7,11 @@ public class LocalizationManager : MonoBehaviour
 {
     public static LocalizationManager Instance { get; private set; }
 
-    public static string[] Languages = { "English", "Polski" };
+    public static string[] Languages = { "Polski", "Angielski" };
     public static string LanguageKey = "language";
     static string pathForLolalizationFile = Path.Combine (Application.streamingAssetsPath, "LocalizationData.csv");
 
-    public string CurrentLanguage = "English";
+    public string CurrentLanguage = "Angielski";
 
     private Dictionary<string, string> localizedText;
 
@@ -33,7 +33,7 @@ public class LocalizationManager : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetString (LanguageKey, "English");
+            PlayerPrefs.SetString (LanguageKey, "Angielski");
         }
 
         LoadLocalizedText ();
@@ -98,12 +98,12 @@ public class LocalizationManager : MonoBehaviour
 
         switch (language)
         {
-            case "English":
-                result = 1;
+            case "Angielski":
+                result = 2;
                 break;
 
             case "Polski":
-                result = 2;
+                result = 1;
                 break;
         }
 

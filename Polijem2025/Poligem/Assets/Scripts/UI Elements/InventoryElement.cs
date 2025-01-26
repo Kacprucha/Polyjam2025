@@ -36,7 +36,16 @@ public class InventoryElement : MonoBehaviour
         this.icon.sprite = icon;
         this.icon.preserveAspect = true;
 
+        empty = false;
+
         AnotherOne ();
+    }
+
+    public void RemoveIteam ()
+    {
+        this.icon.gameObject.SetActive (false);
+        empty = true;
+        ammount = 0;
     }
 
     public void AnotherOne ()
