@@ -69,6 +69,10 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 element.GetComponent<InteractableBehaviour> ().ShowInteractionKey ();
             }
+            else if (element.GetComponent<DoorBehaviour> () != null)
+            {
+                element.GetComponent<DoorBehaviour> ().ShowInteractionKey ();
+            }
         }
     }
 

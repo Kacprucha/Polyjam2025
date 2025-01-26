@@ -8,6 +8,9 @@ public class DoorBehaviour : InteractableElement
     [SerializeField] string info;
     [SerializeField] SpriteFader interactionKeyFader;
 
+    [SerializeField] SpriteFader firstDoors;
+    [SerializeField] SpriteFader secondDoors;
+
     bool elementIsInRange = false;
 
     // Start is called before the first frame update
@@ -23,7 +26,7 @@ public class DoorBehaviour : InteractableElement
         {
             if (PlayerInfo.Instance.HowManyCollectable (TypeOfCollectable.Indetyficator) > 0)
             {
-
+                StartCoroutine (OpenDoors ());
             }
             else
             {
@@ -34,13 +37,27 @@ public class DoorBehaviour : InteractableElement
 
     public override void ShowInteractionKey ()
     {
-        interactionKeyFader.FadeIn ();
-        elementIsInRange = true;
+        if (firstDoors.gameObject.activeSelf && secondDoors.gameObject.activeSelf)
+        {
+            interactionKeyFader.FadeIn ();
+            elementIsInRange = true;
+        }
     }
 
     public override void HideInteractionKey ()
     {
         interactionKeyFader.FadeOut ();
         elementIsInRange = false;
+    }
+
+    protected IEnumerator OpenDoors ()
+    {
+        firstDoors.FadeOut ();
+        secondDoors.FadeOut ();
+
+        yield return new WaitForEndOfFrame ();
+
+        firstDoors.gameObject.SetActive (false);
+        secondDoors.gameObject.SetActive (false);
     }
 }

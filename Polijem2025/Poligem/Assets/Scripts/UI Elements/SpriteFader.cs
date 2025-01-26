@@ -7,6 +7,7 @@ public class SpriteFader : MonoBehaviour
     [SerializeField] float fadeDuration = 1f;
     [SerializeField] float minAlpha = 0f;
     [SerializeField] float maxAlpha = 1f;
+    [SerializeField] bool fadeOnStart = true;
 
     private Coroutine fadeCoroutine;
 
@@ -16,7 +17,9 @@ public class SpriteFader : MonoBehaviour
         {
             Color initialColor = spriteRenderer.color;
             initialColor.a = minAlpha;
-            spriteRenderer.color = initialColor;
+
+            if (fadeOnStart)
+                spriteRenderer.color = initialColor;
         }
     }
 
